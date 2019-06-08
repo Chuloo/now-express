@@ -1,0 +1,23 @@
+{
+  "name": "now-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "William Imoh",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  },
+  "now": {
+    "engines": {
+      "node": "8.9.3"
+    }
+  }
+}
