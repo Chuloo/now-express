@@ -17,7 +17,27 @@ app.get("/users", (req, res) => {
     { name: "William", location: "Abu Dhabi" },
     { name: "Chris", location: "Vegas" }
   ]);
-});
+}); 
+
+// users/by-name?name=william
+app.get("/user/by-name", (req, res) => {
+  // console.log(req.query["name"]); 
+  switch(req.query["name"].toUpperCase()) {
+    case "William".toUpperCase(): 
+      res.json([
+        { name: "William", location: "Abu Dhabi" },
+      ]);  
+      break; 
+    case "Chris".toUpperCase(): 
+      res.json([
+        { name: "Chris", location: "Vegas" }
+      ]);  
+      break; 
+    default: 
+      res.send("404")
+      return 
+  }
+}); 
 
 app.post("/user", (req, res) => {
   const { name, location } = req.body;
