@@ -6,6 +6,10 @@ const port = 5000;
 // Body parser
 app.use(express.urlencoded({ extended: false }));
 
+// https://vercel.com/docs/cli#commands/env 
+// to add secrets via vercel cli: vercel add secret my-secret my-secret-value
+console.log(process.env.MYSECRET); 
+
 // Home route
 app.get("/", (req, res) => {
   res.send("Welcome to a basic express App");
@@ -17,7 +21,27 @@ app.get("/users", (req, res) => {
     { name: "William", location: "Abu Dhabi" },
     { name: "Chris", location: "Vegas" }
   ]);
-});
+}); 
+
+// users/by-name?name=william
+app.get("/user/by-name", (req, res) => {
+  // console.log(req.query["name"]); 
+  switch(req.query["name"].toUpperCase()) {
+    case "William".toUpperCase(): 
+      res.json([
+        { name: "William", location: "Abu Dhabi" },
+      ]);  
+      break; 
+    case "Chris".toUpperCase(): 
+      res.json([
+        { name: "Chris", location: "Vegas" }
+      ]);  
+      break; 
+    default: 
+      res.send("404")
+      return 
+  }
+}); 
 
 app.post("/user", (req, res) => {
   const { name, location } = req.body;
