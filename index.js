@@ -6,6 +6,10 @@ const port = 5000;
 // Body parser
 app.use(express.urlencoded({ extended: false }));
 
+// https://vercel.com/docs/cli#commands/env 
+// to add secrets via vercel cli: vercel add secret my-secret my-secret-value
+console.log(process.env.MYSECRET); 
+
 // Home route
 app.get("/", (req, res) => {
   res.send("Welcome to a basic express App");
