@@ -8,7 +8,7 @@
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "William Imoh",
+  "author": "original version by William Imoh, implemented by Vuong Nguyen",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",

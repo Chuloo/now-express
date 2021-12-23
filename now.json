@@ -1,12 +1,18 @@
 {
   "version": 2,
-  "builds": [{ "src": "index.js", "use": "@now/node-server" }],
+  "builds": [{ "src": "index.js", "use": "@vercel/node" }],
   "routes": [
     {
       "src": "/users",
       "dest": "/index.js",
       "methods": ["GET"]
     },
+    {
+      "src": "/dictionary/api/v1/:words",
+      "dest": "/index.js",
+      "methods": ["GET"]
+    },
+
     {
       "src": "/user",
       "dest": "/index.js",

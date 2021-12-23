@@ -8,16 +8,27 @@ app.use(express.urlencoded({ extended: false }));
 
 // Home route
 app.get("/", (req, res) => {
-  res.send("Welcome to a basic express App");
+  res.send("Welcome to Vietnamese Graphql");
 });
 
 // Mock API
 app.get("/users", (req, res) => {
   res.json([
-    { name: "William", location: "Abu Dhabi" },
+    { name: "Vuong Nguyen", location: "New Zealand" },
     { name: "Chris", location: "Vegas" }
   ]);
 });
+
+
+
+app.get("/dictionary/api/v1/:word", (req, res) => {
+
+  res.json([
+    { name: "Vuong Nguyen", location: "New Zealand" },
+    { name: "Chris", location: "Vegas" }
+  ]);
+});
+
 
 app.post("/user", (req, res) => {
   const { name, location } = req.body;
