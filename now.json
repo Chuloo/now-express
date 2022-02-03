@@ -1,6 +1,9 @@
 {
   "version": 2,
-  "builds": [{ "src": "index.js", "use": "@now/node-server" }],
+  "builds": [{ "src": "index.js", "use": "@@vercel/node" }],
+  "env": {
+    "MYSECRET": "@my-secret"
+  }, 
   "routes": [
     {
       "src": "/users",
@@ -11,6 +14,11 @@
       "src": "/user",
       "dest": "/index.js",
       "methods": ["POST"]
+    }, 
+    {
+      "src": "/user/by-name", 
+      "dest": "/index.js", 
+      "methods": ["GET"]
     }
   ]
 }
